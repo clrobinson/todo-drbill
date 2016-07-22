@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   root 'static#index'
 
+  post '/sign_in' => 'users#sign_in'
+  post '/sign_out' => 'users#sign_out'
+
+  resources :users, only: [:create]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
