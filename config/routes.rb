@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   root 'static#index'
 
-  post '/sign_in' => 'users#sign_in'
-  post '/sign_out' => 'users#sign_out'
+  post '/sign_in' => 'sessions#sign_in'
+  post '/sign_out' => 'sessions#sign_out'
 
   resources :users, only: [:create]
 

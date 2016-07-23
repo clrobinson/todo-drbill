@@ -3,3 +3,4 @@
 //= require bootstrap-sprockets
 //= require list_details
 //= require list_overview
+//= require events

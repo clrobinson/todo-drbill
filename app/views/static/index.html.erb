@@ -9,9 +9,9 @@
 </head>
 <body>
 
-<%= render 'partials/sign_in_modal' %>
+<%= render 'modals/sign_in' %>
 
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#signInModal">Modal</button>
+<%= render 'partials/header' %>
 
 <%= render 'partials/list_container', lists: List.all %>
 

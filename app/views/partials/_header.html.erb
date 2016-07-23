@@ -1,0 +1,9 @@
+<header class="text-right">
+
+  <button type="button" class="btn btn-default btn-primary <%= 'hide' if current_user %>" data-toggle="modal" data-target="#sign-in-modal" id="sign-in-btn">Sign In</button>
+
+  <%= form_tag(sign_out_path, remote: true, class: ('hide' if !current_user), id: 'sign-out-form') do %>
+    <%= submit_tag 'Sign Out', class: 'btn btn-default btn-info' %>
+  <% end %>
+  
+</header>
