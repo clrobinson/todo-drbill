@@ -1,0 +1,6 @@
+<div id='list-container'>
+  <%= render 'partials/list_new' %>
+  <% lists.each do |list| %>
+    <%= render 'partials/list', list: list %>
+  <% end %>
+</div>

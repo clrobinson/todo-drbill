@@ -13,11 +13,9 @@
 
 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#signInModal">Modal</button>
 
-<div class='container-fluid list-container'>
-  <% Item.all.each do |item| %>
-    <%= render 'partials/item', item: item %>
-  <% end %>
-</div>
+<%= render 'partials/list_container', lists: List.all %>
+
+<%# render 'partials/item_container', items: Item.all %>
 
 </body>
 </html>

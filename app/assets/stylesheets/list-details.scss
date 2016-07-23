@@ -1,4 +1,4 @@
-.list-container {
+#item-container {
   margin: 0 5%;
   /*position: relative;*/
 
@@ -46,7 +46,7 @@
 
 @media (min-width: 768px) {
 
-  .list-container {
+  #item-container {
     margin: 0 15%;
   }
 
