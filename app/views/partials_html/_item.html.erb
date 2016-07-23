@@ -1,4 +1,4 @@
-<div id="item-<%= item.id %>" class='row item <%= "overdue" if item.due_date && item.due_date < Date.today %> <%= 'done' if item.done %>'>
+<div id="item-<%= item.id %>" class='row item <%= "overdue" if item.due_date && item.due_date < Date.today %> <%= 'done' if item.done %>' data-sortstamp="<%= item.sortstamp %>" >
   <div class="col-sm-1">
     <% if item.done %>
       <button class="btn btn-xs btn-success btn-done" title="Mark as Incomplete">&#10004;</button>

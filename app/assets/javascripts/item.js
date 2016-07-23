@@ -112,3 +112,19 @@ var registerItemContainer = function() {
   // Register all items...
   $('.item').each(function() { registerItem(this); });
 }
+
+// Function: Sort Item Display
+var sortItemContainer = function() {
+  rows = $('#item-container').find('.row');
+  rows.sort(function(a, b) {
+    if ( parseInt(a.getAttribute('data-sortstamp')) > parseInt(b.getAttribute('data-sortstamp')) ) { return -1; }
+    if ( parseInt(a.getAttribute('data-sortstamp')) < parseInt(b.getAttribute('data-sortstamp')) ) { return 1; }
+    return 0;
+  });
+  var runningTop = 0;
+  $.each(rows, function(index, row) {
+    var $row = $(row);
+    $row.animate({top: runningTop});
+    runningTop += $row.outerHeight(true);
+  });
+}
