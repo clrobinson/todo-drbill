@@ -4,8 +4,8 @@
       <button class="btn btn-xs btn-info" title="Complete Item">&#10004;</button>
     <% end %>
   </div>
-  <div class="item col-sm-7 <%= "done" if item.done %>" contenteditable='true'><%= item.content %></div>
-  <div class="col-sm-4 text-right">
+  <div class="item col-sm-8 <%= "done" if item.done %>" contenteditable='true'><%= item.content %></div>
+  <div class="col-sm-3 text-right">
     <% if not item.done %>
       <span class="due <%= "no-due-date" if item.due_date.nil? %>">
         <% if item.due_date %>
