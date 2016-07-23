@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
   validates :list, presence: true
 
   # Callbacks
-  before_validate :done_removes_due_date
+  before_validation :done_removes_due_date
 
   protected
 

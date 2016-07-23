@@ -1,4 +1,4 @@
-<div class='row <%= "overdue" if item.due_date && item.due_date <= Date.today %> <%= 'done' if item.done %>'>
+<div class='row <%= "overdue" if item.due_date && item.due_date < Date.today %> <%= 'done' if item.done %>'>
   <div class="col-sm-1">
     <% if not item.done %>
       <button class="btn btn-xs btn-info" title="Complete Item">&#10004;</button>
@@ -8,7 +8,9 @@
   <div class="col-sm-3 text-right">
     <% if not item.done %>
       <span class="due <%= "no-due-date" if item.due_date.nil? %>">
-        <% if item.due_date %>
+        <% if item.due_date && item.due_date < Date.today %>
+          <span title="Was due on <%= item.due_date.strftime('%d/%m/%Y') %>">Overdue!</span>
+        <% elsif item.due_date %>
           <%= item.due_date.strftime('%d/%m/%Y') %>
         <% else %>
           No Due Date
