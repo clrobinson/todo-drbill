@@ -1,0 +1,53 @@
+.list-container {
+  margin: 0 5%;
+  /*position: relative;*/
+
+  .row {
+    background-color: #ddf;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 5px;
+    /*position: absolute;
+    width: 100%;*/
+
+    &.overdue {
+      background-color: #336;
+      color: #fff;
+    }
+
+    &.done {
+      background-color: #efe;
+    }
+
+    .item {
+      cursor: pointer;
+      display: inline-block;
+
+      &.done {
+        text-decoration: line-through;
+      }
+    }
+
+    .item:focus {
+      cursor: text;
+    }
+
+    .due {
+      opacity: 0.7;
+      font-style: italic;
+      cursor: pointer;
+    }
+
+    .due.no-due-date {
+      opacity: 0.3;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+
+  .list-container {
+    margin: 0 15%;
+  }
+
+}

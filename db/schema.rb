@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160719235217) do
 
   create_table "items", force: :cascade do |t|
     t.text     "content",                    null: false
-    t.datetime "due_date"
+    t.date     "due_date"
     t.boolean  "done",       default: false
     t.integer  "list_id",                    null: false
     t.datetime "created_at",                 null: false

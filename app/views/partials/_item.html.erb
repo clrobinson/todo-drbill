@@ -1,0 +1,21 @@
+<div class='row <%= "overdue" if item.due_date && item.due_date <= Date.today %> <%= 'done' if item.done %>'>
+  <div class="col-sm-1">
+    <% if not item.done %>
+      <button class="btn btn-xs btn-info" title="Complete Item">&#10004;</button>
+    <% end %>
+  </div>
+  <div class="item col-sm-7 <%= "done" if item.done %>" contenteditable='true'><%= item.content %></div>
+  <div class="col-sm-4 text-right">
+    <% if not item.done %>
+      <span class="due <%= "no-due-date" if item.due_date.nil? %>">
+        <% if item.due_date %>
+          <%= item.due_date.strftime('%d/%m/%Y') %>
+        <% else %>
+          No Due Date
+        <% end %>
+      </span>
+    <% else %>
+      <button class="btn btn-xs btn-success" title="Clear Item">&#10008;</button>
+    <% end %>
+  </div>
+</div>

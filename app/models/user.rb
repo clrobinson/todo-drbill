@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # Associations
-  has_many :lists
+  has_many :lists, dependent: :destroy
 
   # Validations
   validates :name, presence: true
