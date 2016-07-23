@@ -4,3 +4,4 @@
 //= require list_details
 //= require list_overview
 //= require events
+//= require functions

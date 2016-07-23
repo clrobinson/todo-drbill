@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/sign_out' => 'sessions#sign_out'
 
   resources :users, only: [:create]
+  resources :lists, only: [:create, :update, :destroy]
+  resources :items, only: [:create, :update, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

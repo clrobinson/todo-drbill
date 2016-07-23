@@ -1,3 +1,10 @@
 $('#sign-in-modal').modal('hide');
+$('#signed-in-as-name').text('<%= current_user.name %>');
 $('#sign-in-btn').addClass('hide');
 $('#sign-out-form').removeClass('hide');
+
+var $listContainer = $('<%= escape_javascript( render "partials/list_container", lists: current_user.lists ) %>');
+
+$('#main')
+  .empty()
+  .append($listContainer);

@@ -13,9 +13,11 @@
 
 <%= render 'partials/header' %>
 
-<%= render 'partials/list_container', lists: List.all %>
-
-<%# render 'partials/item_container', items: Item.all %>
+<div id="main">
+  <% if current_user %>
+    <%= render 'partials/list_container', lists: current_user.lists %>
+  <% end %>
+</div>
 
 </body>
 </html>
