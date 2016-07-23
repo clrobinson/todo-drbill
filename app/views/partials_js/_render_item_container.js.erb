@@ -1,0 +1,5 @@
+var $itemContainer = $('<%= escape_javascript( render "partials_html/item_container", items: items ) %>');
+
+$('#main').empty().append($itemContainer);
+
+registerItemContainerEvents();

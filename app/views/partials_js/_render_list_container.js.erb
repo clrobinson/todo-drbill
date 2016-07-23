@@ -1,0 +1,5 @@
+var $listContainer = $('<%= escape_javascript( render "partials_html/list_container", lists: current_user.lists ) %>');
+
+$('#main').empty().append($listContainer);
+
+registerListContainerEvents();

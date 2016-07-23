@@ -6,8 +6,21 @@
         <h4 class="modal-title" id="new-list-modal-label">New List</h4>
       </div>
       <div class="modal-body">
-        <p>Please enter a name for your new list.</p>
-        #
+        <p>Please enter a name for your new list. Or, leave the field blank to accept the default name.</p>
+        <%= form_for List.new, remote: true, html: {class: 'form-horizontal'} do |f| %>
+          <div class="form-group">
+            <%= f.label :name, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.text_field :name, placeholder: List.default_name, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <%= f.submit 'Create List', class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+        <p id="new-list-error-explanation"></p>
       </div>
     </div>
   </div>
