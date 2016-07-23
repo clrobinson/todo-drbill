@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
     def restrict_access
       unless current_user
-        render('sessions/sign_out') and return
+        render 'sessions/sign_out' and return
       end
     end
 
