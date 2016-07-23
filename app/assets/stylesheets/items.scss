@@ -19,16 +19,17 @@
       background-color: #efe;
     }
 
-    .item {
+    .item-content {
       cursor: pointer;
-      display: inline-block;
 
       &.done {
         text-decoration: line-through;
+        cursor: initial;
+        opacity: 0.3;
       }
     }
 
-    .item:focus {
+    .item-content:focus {
       cursor: text;
     }
 
@@ -40,6 +41,19 @@
 
     .due.no-due-date {
       opacity: 0.3;
+    }
+  }
+
+  #new-item {
+    background-color: #eef;
+    cursor: pointer;
+
+    #new-item-content {
+      opacity: 0.3;
+
+      &:focus {
+        opacity: 1;
+      }
     }
   }
 }

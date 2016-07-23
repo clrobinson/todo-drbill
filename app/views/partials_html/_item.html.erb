@@ -1,23 +1,25 @@
-<div class='row <%= "overdue" if item.due_date && item.due_date < Date.today %> <%= 'done' if item.done %>'>
+<div id="item-<%= item.id %>" class='row item <%= "overdue" if item.due_date && item.due_date < Date.today %> <%= 'done' if item.done %>'>
   <div class="col-sm-1">
-    <% if not item.done %>
-      <button class="btn btn-xs btn-info" title="Complete Item">&#10004;</button>
+    <% if item.done %>
+      <button class="btn btn-xs btn-success btn-done" title="Mark as Incomplete">&#10004;</button>
+    <% else %>
+      <button class="btn btn-xs btn-info btn-done" title="Mark as Complete">&#10004;</button>
     <% end %>
   </div>
-  <div class="item col-sm-8 <%= "done" if item.done %>" contenteditable='true'><%= item.content %></div>
+  <div class="item-content col-sm-8 <%= "done" if item.done %>" <%= "contenteditable=true" if !item.done %> ><%= item.content %></div>
   <div class="col-sm-3 text-right">
     <% if not item.done %>
       <span class="due <%= "no-due-date" if item.due_date.nil? %>">
         <% if item.due_date && item.due_date < Date.today %>
           <span title="Was due on <%= item.due_date.strftime('%d/%m/%Y') %>">Overdue!</span>
         <% elsif item.due_date %>
-          <%= item.due_date.strftime('%d/%m/%Y') %>
+          <span title="Due on <%= item.due_date.strftime('%d/%m/%Y') %>"><%= item.due_date.strftime('%d/%m/%Y') %></span>
         <% else %>
-          No Due Date
+          <span title="Click to set a due date">No Due Date</span>
         <% end %>
       </span>
     <% else %>
-      <button class="btn btn-xs btn-success" title="Clear Item">&#10008;</button>
+      <button class="btn btn-xs btn-danger btn-clear" title="Clear Item">&#10008;</button>
     <% end %>
   </div>
 </div>

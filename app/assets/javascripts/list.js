@@ -24,7 +24,3 @@ var registerListContainerEvents = function() {
   });
 
 }
-
-
-
-var registerItemContainerEvents = function() {}
