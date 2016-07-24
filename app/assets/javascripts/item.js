@@ -124,6 +124,15 @@ var registerItemContainer = function() {
   var $newItemContent = $('#new-item-content');
   var newPrompt = $newItemContent.text();
 
+  // Event: Window resize.
+  var resizeTimeout;
+  $(window).off('resize').on('resize', function() {
+    window.clearTimeout(resizeTimeout);
+    resizeTimeout = window.setTimeout(function() {
+      sortItemContainer();
+    }, 300);
+  });
+
   // Event: Back to all lists.
   $('#list-back').off('click').on('click', function(e) {
     $.ajax({
