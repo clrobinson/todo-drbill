@@ -73,6 +73,7 @@ var registerItem = function($item) {
   if ($content) {
     $content.off('focus');
     $content.off('blur');
+    var originalContent = $content.text();
 
     // Event: Item is to start editing.
     $content.on('focus', function() {
@@ -82,8 +83,11 @@ var registerItem = function($item) {
     // Event: Item is to finish editing.
     $content.on('blur', function() {
       deregisterEnter($content);
-      var data = {item: {content: $content.text()} };
-      updateItem(itemId, data);
+      var newText = $content.text();
+      if ( newText != originalContent) {
+        var data = {item: {content: newText} };
+        updateItem(itemId, data);
+      }
     });
   }
 
