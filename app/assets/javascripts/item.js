@@ -93,11 +93,19 @@ var registerItem = function($item) {
 
   if ($due) {
     $due.off('click');
+    var date;
+    if ( $due.data('jsondate') ) { date = new Date ( $due.data('jsondate') ); }
 
     // Event: Item due date is to start editing.
     $due.on('click', function() {
-      console.log(itemId + ' needs to edit due date')
-      ////
+      if (date) {
+        $('#datepicker').datepicker('setDates', date);
+      } else {
+        $('#datepicker').datepicker('clearDates');
+      }
+      if ($content) { $('#item-due-date-text').text( $content.text() ); }
+      $('#due-date-submit').data('item-id', itemId);
+      $('#due-date-modal').modal('show');
     });
   }
 

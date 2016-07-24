@@ -1,4 +1,4 @@
-var registerListContainerEvents = function() {
+var registerListContainer = function() {
 
   // Event: Show modal for creating a new list.
   $('#new-list').off('click').on('click', function(e) {

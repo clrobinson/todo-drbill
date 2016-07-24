@@ -9,7 +9,7 @@
   <div class="item-content col-sm-8 <%= "done" if item.done %>" <%= "contenteditable=true" if !item.done %> ><%= item.content %></div>
   <div class="col-sm-3 text-right">
     <% if not item.done %>
-      <span class="due <%= "no-due-date" if item.due_date.nil? %>">
+      <span class="due <%= "no-due-date" if item.due_date.nil? %>" <%= "data-jsondate=#{item.due_date.to_json}" if !item.due_date.nil? %> >
         <% if item.due_date && item.due_date < Date.today %>
           <span title="Was due on <%= item.due_date.strftime('%d/%m/%Y') %>">Overdue!</span>
         <% elsif item.due_date %>
