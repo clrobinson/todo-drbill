@@ -21,7 +21,6 @@
   }
 
   .list {
-    cursor: pointer;
     margin: 10px;
     height: 180px;
     width: 125px;
@@ -30,7 +29,8 @@
     border: 1px solid #ddf;
     padding: 8px;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: background-color 0.3s;
+    position: relative;
 
     .name {
       font-weight: bold;
@@ -40,11 +40,35 @@
       font-weight: bold;
       margin-right: 10px;
     }
+
+    .btn {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.3s;
+      width: 70px;
+      left: 25.5px;
+    }
+
+    .btn-show {
+      top: 88px;
+    }
+
+    .btn-rename {
+      top: 118px;
+    }
+
+    .btn-destroy {
+      top: 148px;
+    }
   }
 
   .list:hover {
     background-color: #ddf;
     border: 1px solid #ccf;
+  }
+
+  .list:hover .btn {
+    opacity: 1;
   }
 
   .divider {

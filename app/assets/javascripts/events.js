@@ -25,4 +25,21 @@ $(document).ready(function(){
     updateItem(id, data);
   });
 
+  $('#form-list-rename').on('submit', function(e) {
+    e.preventDefault();
+    var $form = $('#form-list-rename');
+    var oldName = $form.data('old-name');
+    var newName = $('#rename-name').val();
+    if (oldName != newName) {
+      var id = $form.data('rename-id');
+      var data = {list: {name: newName} };
+      updateList(id, data);
+    }
+  });
+
+  $('#destroy-list-confirm').on('click', function(e) {
+    e.preventDefault();
+    destroyList( $('#destroy-list-confirm').data('list-id') );
+  });
+
 });

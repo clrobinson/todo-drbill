@@ -9,16 +9,17 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.new(list_params)
     (render 'create_error' and return) if not @list.save
   end
 
   def update
-    #
+    (render 'update_error' and return) if not @list.update(list_params)
   end
 
   def destroy
-    #
+    @list_id = @list.id
+    (render 'destroy_error' and return) if not @list.destroy
   end
 
   protected

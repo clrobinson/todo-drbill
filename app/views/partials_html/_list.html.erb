@@ -1,9 +1,10 @@
 <div class="list" id='list-<%= list.id %>'>
-  <div class="name">
-    <%= list.name %>
-  </div>
+  <div class="name"><%= list.name %></div>
   <div class='divider'></div>
   <div class="items">
     <span class="list-label">Items</span><span class="count"><%= list.items.count %></span>
   </div>
+  <button class="btn-show btn btn-info btn-xs">Show</button>
+  <button class="btn-rename btn btn-warning btn-xs">Rename</button>
+  <button class="btn-destroy btn btn-danger btn-xs">Destroy</button>
 </div>
