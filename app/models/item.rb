@@ -15,9 +15,10 @@ class Item < ActiveRecord::Base
 
   def sortstamp
     if self.due_date.nil?
-      self.done ? 0 : 1
+      self.done ? 200000001 : 200000000
     else
-      self.overdue? ? self.due_date.to_time.to_i * 2 : self.due_date.to_time.to_i
+      due_int = self.due_date.to_time.to_i
+      self.overdue? ? (due_int * 0.01).floor : (due_int * 0.02).floor
     end
   end
 

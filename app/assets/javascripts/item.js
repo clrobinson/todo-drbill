@@ -151,8 +151,8 @@ var registerItemContainer = function() {
 var sortItemContainer = function() {
   rows = $('#item-container').find('.row');
   rows.sort(function(a, b) {
-    if ( parseInt(a.getAttribute('data-sortstamp')) > parseInt(b.getAttribute('data-sortstamp')) ) { return -1; }
-    if ( parseInt(a.getAttribute('data-sortstamp')) < parseInt(b.getAttribute('data-sortstamp')) ) { return 1; }
+    if ( parseInt(a.getAttribute('data-sortstamp')) > parseInt(b.getAttribute('data-sortstamp')) ) { return 1; }
+    if ( parseInt(a.getAttribute('data-sortstamp')) < parseInt(b.getAttribute('data-sortstamp')) ) { return -1; }
     return 0;
   });
   var runningTop = $('.item-container-name').outerHeight(true);
