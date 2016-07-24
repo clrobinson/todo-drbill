@@ -1,6 +1,9 @@
 class ListsController < ApplicationController
   before_action :restrict_access
-  before_action :set_list, except: [:create]
+  before_action :set_list, except: [:index, :create]
+
+  def index
+  end
 
   def show
   end

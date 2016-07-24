@@ -124,6 +124,15 @@ var registerItemContainer = function() {
   var $newItemContent = $('#new-item-content');
   var newPrompt = $newItemContent.text();
 
+  // Event: Back to all lists.
+  $('#list-back').off('click').on('click', function(e) {
+    $.ajax({
+      url: '/lists',
+      method: 'get',
+      dataType: 'script'
+    });
+  });
+
   // Event: Start making a new item.
   $newItemContent.off('focus').on('focus', function(e) {
     registerEnter($newItemContent);
@@ -155,7 +164,7 @@ var sortItemContainer = function() {
     if ( parseInt(a.getAttribute('data-sortstamp')) < parseInt(b.getAttribute('data-sortstamp')) ) { return -1; }
     return 0;
   });
-  var runningTop = $('.item-container-name').outerHeight(true);
+  var runningTop = $('.item-container-name').outerHeight(true) + $('#list-back').outerHeight(true);
   $.each(rows, function(index, row) {
     var $row = $(row);
     $row.animate({top: runningTop});

@@ -1,5 +1,6 @@
 <div class='container-fluid' id="item-container">
   <h2 id="list-<%= list.id %>" class="item-container-name"><%= list.name %></h2>
+  <button class="btn btn-info" id="list-back">Back to All Lists</button>
   <% list.items.each do |item| %>
     <%= render 'partials_html/item', item: item %>
   <% end %>
