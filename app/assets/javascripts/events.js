@@ -34,6 +34,8 @@ $(document).ready(function(){
       var id = $form.data('rename-id');
       var data = {list: {name: newName} };
       updateList(id, data);
+    } else {
+      $('#rename-list-modal').modal('hide');
     }
   });
 
