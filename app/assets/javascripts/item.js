@@ -1,7 +1,22 @@
+// Function: Register Enter Key
+var registerEnter = function($elem) {
+  $elem.on('keydown', function(e) {
+    if (e.keyCode == 13) {
+      e.preventDefault();
+      $elem.trigger('blur');
+    }
+  });
+}
+
+// Function: Deregister Enter Key
+var deregisterEnter = function($elem) {
+  $elem.off('keydown');
+}
+
 // Function: Create Item
-var createItem = function(id, data) {
+var createItem = function(data) {
   $.ajax({
-    url: '/items/' + id,
+    url: '/items',
     method: 'post',
     data: data,
     dataType: 'script'
@@ -28,8 +43,7 @@ var destroyItem = function(id) {
 }
 
 // Function: Register Item
-var registerItem = function(elem) {
-  var $item = $(elem);
+var registerItem = function($item) {
   var itemId = $item.attr('id').substr(5);
   var $btnDone = $item.find('.btn-done');
   var $content = $item.find('.item-content:not(.done)');
@@ -42,16 +56,16 @@ var registerItem = function(elem) {
     if ( $btnDone.hasClass('btn-info') ) {
       // Event: Item is to be flagged as done.
       $btnDone.on('click', function() {
-        console.log(itemId + ' is to be flagged as done');
-        ////
+        var data = {item: {done: true} };
+        updateItem(itemId, data);
       });
     }
 
     if ( $btnDone.hasClass('btn-success') ) {
       // Event: Item is to be flagged as not done.
       $btnDone.on('click', function() {
-        console.log(itemId + ' is to be flagged as NOT done');
-        ////
+        var data = {item: {done: false} };
+        updateItem(itemId, data);
       });
     }
   }
@@ -62,14 +76,14 @@ var registerItem = function(elem) {
 
     // Event: Item is to start editing.
     $content.on('focus', function() {
-      console.log(itemId + ' is editing');
-      ////
+      registerEnter($content);
     });
 
     // Event: Item is to finish editing.
     $content.on('blur', function() {
-      console.log(itemId + ' is DONE editing');
-      ////
+      deregisterEnter($content);
+      var data = {item: {content: $content.text()} };
+      updateItem(itemId, data);
     });
   }
 
@@ -88,8 +102,7 @@ var registerItem = function(elem) {
 
     // Event: Item 'btn-clear' is clicked.
     $btnClear.on('click', function() {
-      console.log(itemId + ' should be CLEARED')
-      ////
+      destroyItem(itemId);
     });
   }
 }
@@ -101,16 +114,25 @@ var registerItemContainer = function() {
 
   // Event: Start making a new item.
   $newItemContent.off('focus').on('focus', function(e) {
+    registerEnter($newItemContent);
     $newItemContent.text('');
   });
 
   // Event: Finish making a new item.
   $newItemContent.off('blur').on('blur', function(e) {
+    deregisterEnter($newItemContent);
+    if ( $newItemContent.text() ) {
+      data = {item: {
+        content: $newItemContent.text(), 
+        list_id: $('.item-container-name').attr('id').substr(5)
+      } };
+      createItem(data);
+    }
     $newItemContent.text(newPrompt);
   });
 
   // Register all items...
-  $('.item').each(function() { registerItem(this); });
+  $('.item').each(function() { registerItem( $(this) ); });
 }
 
 // Function: Sort Item Display
@@ -121,7 +143,7 @@ var sortItemContainer = function() {
     if ( parseInt(a.getAttribute('data-sortstamp')) < parseInt(b.getAttribute('data-sortstamp')) ) { return 1; }
     return 0;
   });
-  var runningTop = 0;
+  var runningTop = $('.item-container-name').outerHeight(true);
   $.each(rows, function(index, row) {
     var $row = $(row);
     $row.animate({top: runningTop});

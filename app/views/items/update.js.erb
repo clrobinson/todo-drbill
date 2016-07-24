@@ -1,0 +1,6 @@
+var $oldItem = $('#item-<%= @item.id %>');
+var $newItem = $('<%= escape_javascript( render "partials_html/item", item: @item ) %>');
+$newItem.css('top', $oldItem.css('top') );
+$oldItem.replaceWith($newItem);
+registerItem($newItem);
+sortItemContainer();

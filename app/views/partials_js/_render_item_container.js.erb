@@ -1,4 +1,4 @@
-var $itemContainer = $('<%= escape_javascript( render "partials_html/item_container", items: items ) %>');
+var $itemContainer = $('<%= escape_javascript( render "partials_html/item_container", list: list ) %>');
 
 $('#main').empty().append($itemContainer);
 

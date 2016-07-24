@@ -1,0 +1,6 @@
+var $item = $('<%= escape_javascript( render "partials_html/item", item: @item ) %>');
+var $itemCreator = $('#new-item');
+$item.css('top', $itemCreator.css('top') );
+$item.insertBefore( $itemCreator );
+registerItem($item);
+sortItemContainer();

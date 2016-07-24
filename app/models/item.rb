@@ -24,7 +24,8 @@ class Item < ActiveRecord::Base
   protected
 
     def done_removes_due_date
-      self.due_date = nil if self.done = true
+      self.due_date = nil if self.done
+      return true
     end
 
 end
