@@ -165,7 +165,7 @@ var registerItemContainer = function() {
   $('.item').each(function() { registerItem( $(this) ); });
 }
 
-// Function: Sort Item Display
+// Function: Sort Item Container
 var sortItemContainer = function() {
   rows = $('#item-container').find('.row');
   rows.sort(function(a, b) {

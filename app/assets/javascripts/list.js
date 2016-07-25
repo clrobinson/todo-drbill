@@ -17,6 +17,7 @@ var destroyList = function(id) {
   });
 }
 
+// Function: Register All Lists in List Container
 var registerListContainer = function() {
 
   // Event: Show modal for creating a new list.
