@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160719235217) do
   add_index "items", ["list_id"], name: "index_items_on_list_id", using: :btree
 
   create_table "lists", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

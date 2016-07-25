@@ -4,6 +4,7 @@ class List < ActiveRecord::Base
   belongs_to :user
   
   # Validations
+  validates :name, presence: true
   validates :user, presence: true
 
   # Callbacks

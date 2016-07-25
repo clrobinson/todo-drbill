@@ -1,4 +1,4 @@
-<div id="item-<%= item.id %>" class='row item <%= "overdue" if item.due_date && item.due_date < Date.today %> <%= 'done' if item.done %>' data-sortstamp="<%= item.sortstamp %>" >
+<div id="item-<%= item.id %>" class='row item<%= ' overdue' if item.overdue? %><%= ' done' if item.done %>' data-sortstamp="<%= item.sortstamp %>" >
   <div class="col-sm-1">
     <% if item.done %>
       <button class="btn btn-xs btn-success btn-done" title="Mark as Incomplete">&#10004;</button>
@@ -9,8 +9,8 @@
   <div class="item-content col-sm-8 <%= "done" if item.done %>" <%= "contenteditable=true" if !item.done %> ><%= item.content %></div>
   <div class="col-sm-3 text-right">
     <% if not item.done %>
-      <span class="due <%= "no-due-date" if item.due_date.nil? %>" <%= "data-jsondate=#{item.due_date.to_json}" if !item.due_date.nil? %> >
-        <% if item.due_date && item.due_date < Date.today %>
+      <span class="due<%= " no-due-date" if item.due_date.nil? %>" <%= "data-jsondate=#{item.due_date.to_json}" if !item.due_date.nil? %>>
+        <% if item.overdue? %>
           <span title="Was due on <%= item.due_date.strftime('%b %d, %Y') %>">Overdue!</span>
         <% elsif item.due_date %>
           <span title="Due on <%= item.due_date.strftime('%b %d, %Y') %>"><%= item.due_date.strftime('%b %d, %Y') %></span>

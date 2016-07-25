@@ -4,6 +4,7 @@ class Item < ActiveRecord::Base
   
   # Validations
   validates :list, presence: true
+  validates :content, presence: true
 
   # Callbacks
   before_validation :done_removes_due_date
