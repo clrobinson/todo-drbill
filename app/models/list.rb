@@ -10,6 +10,7 @@ class List < ActiveRecord::Base
   # Callbacks
   before_validation :set_default_name
 
+  # Class Methods
   def self.default_name
     "List for #{Date.today.strftime('%b %d, %Y')}"
   end

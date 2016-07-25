@@ -10,6 +10,7 @@ class Item < ActiveRecord::Base
   before_validation :done_removes_due_date
   before_validation :format_content_whitespace
 
+  # Methods
   def overdue?
     return nil if self.due_date.nil?
     Date.today > self.due_date
