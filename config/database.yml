@@ -82,4 +82,4 @@ production:
   <<: *default
   database: todo-drbill_production
   username: todo-drbill
-  password: <%= ENV['TODO-DRBILL_DATABASE_PASSWORD'] %>
+  password: <%= ENV['TODO_DRBILL_DATABASE_PASSWORD'] %>
