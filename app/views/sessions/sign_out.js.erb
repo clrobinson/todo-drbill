@@ -1,5 +1,10 @@
 $('#signed-in-as-name').text('');
 $('#sign-in-btn').removeClass('hide');
+$('#sign-up-btn').removeClass('hide');
 $('#sign-out-form').addClass('hide');
 
-$('#main').empty();
+var $prompt = $('<%= escape_javascript( render "partials_html/sign_in_prompt" ) %>');
+
+$('#main')
+  .empty()
+  .append($prompt);

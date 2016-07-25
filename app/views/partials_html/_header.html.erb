@@ -1,12 +1,11 @@
 <header class="text-right">
 
   <button type="button" class="btn btn-default btn-primary <%= 'hide' if current_user %>" data-toggle="modal" data-target="#sign-in-modal" id="sign-in-btn">Sign In</button>
-
-
+  <button type="button" class="btn btn-default btn-info <%= 'hide' if current_user %>" data-toggle="modal" data-target="#sign-up-modal" id="sign-up-btn">Sign Up</button>
 
   <%= form_tag(sign_out_path, remote: true, class: ('hide' if !current_user), id: 'sign-out-form') do %>
     <span>Signed in as <strong id="signed-in-as-name"><%= current_user ? current_user.name : '' %></strong></span>
-    <%= submit_tag 'Sign Out', class: 'btn btn-default btn-info' %>
+    <%= submit_tag 'Sign Out', class: 'btn btn-default btn-success' %>
   <% end %>
   
 </header>

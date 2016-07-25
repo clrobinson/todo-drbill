@@ -10,22 +10,25 @@
 <body>
 
 <%= render 'modals/sign_in' %>
+<%= render 'modals/sign_up' %>
 <%= render 'modals/new_list' %>
 <%= render 'modals/rename_list' %>
 <%= render 'modals/destroy_list' %>
 <%= render 'modals/due_date' %>
 
 <%= render 'partials_html/header' %>
+<%= render 'partials_html/flash' %>
 
 <div id="main">
   <% if current_user %>
     <%= render 'partials_html/list_container', lists: current_user.lists %>
+    <script>
+      registerListContainer();
+    </script>
+  <% else %>
+    <%= render 'partials_html/sign_in_prompt' %>
   <% end %>
 </div>
-
-<script>
-  registerListContainer();
-</script>
 
 </body>
 </html>

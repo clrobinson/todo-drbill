@@ -1,6 +1,8 @@
 $('#sign-in-modal').modal('hide');
+$('#sign-up-modal').modal('hide');
 $('#signed-in-as-name').text('<%= current_user.name %>');
 $('#sign-in-btn').addClass('hide');
+$('#sign-up-btn').addClass('hide');
 $('#sign-out-form').removeClass('hide');
 
 <%= render 'partials_js/render_list_container' %>

@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
     @user = User.find_by(name: params[:name])
     if @user && @user.authenticate(params[:password])
       session['user_id'] = @user.id
-      render 'sign_in'
     else
       render 'sign_in_error'
     end

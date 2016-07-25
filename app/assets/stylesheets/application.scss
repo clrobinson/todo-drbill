@@ -13,3 +13,20 @@ header {
   background-color: #eef;
   padding: 5px;
 }
+
+#sign-in-prompt {
+  margin: 0 10%;
+}
+
+#flash-msg {
+  min-height: 45px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #fcd;
+  padding: 10px 30px;
+  width: 100%;
+  opacity: 0;
+  font-weight: bold;
+  z-index: 1;
+}

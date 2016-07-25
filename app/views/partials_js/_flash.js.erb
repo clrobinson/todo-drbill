@@ -1,0 +1,8 @@
+$('.modal').each(function() { $(this).modal('hide'); });
+
+$flash = $('#flash-msg');
+$flash.text(msg);
+$flash.css('opacity', '1');
+setTimeout(function() {
+  $flash.animate({opacity: 0}, 3000);
+}, 2000);
