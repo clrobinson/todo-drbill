@@ -32,7 +32,7 @@ class Item < ActiveRecord::Base
     end
 
     def format_content_whitespace
-      self.content = self.content.squish
+      self.content = self.content.squish if self.content
       return true
     end
 
