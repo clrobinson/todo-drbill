@@ -3,6 +3,7 @@
 @import "bootstrap-datepicker3";
 @import "items";
 @import "lists";
+@import "flash";
 
 body {
   font-size: 16px;
@@ -16,17 +17,4 @@ header {
 
 #sign-in-prompt {
   margin: 0 10%;
-}
-
-#flash-msg {
-  min-height: 45px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-color: #fcd;
-  padding: 10px 30px;
-  width: 100%;
-  opacity: 0;
-  font-weight: bold;
-  z-index: 1;
 }

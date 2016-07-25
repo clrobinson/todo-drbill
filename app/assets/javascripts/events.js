@@ -43,4 +43,8 @@ $(document).ready(function(){
     destroyList( $('#destroy-list-confirm').data('list-id') );
   });
 
+  $('#flash-msg').on('click', function() {
+    $(this).stop().css('z-index', -1).html('');
+  });
+
 });
