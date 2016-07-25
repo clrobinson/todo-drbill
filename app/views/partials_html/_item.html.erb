@@ -11,9 +11,9 @@
     <% if not item.done %>
       <span class="due <%= "no-due-date" if item.due_date.nil? %>" <%= "data-jsondate=#{item.due_date.to_json}" if !item.due_date.nil? %> >
         <% if item.due_date && item.due_date < Date.today %>
-          <span title="Was due on <%= item.due_date.strftime('%d/%m/%Y') %>">Overdue!</span>
+          <span title="Was due on <%= item.due_date.strftime('%b %d, %Y') %>">Overdue!</span>
         <% elsif item.due_date %>
-          <span title="Due on <%= item.due_date.strftime('%d/%m/%Y') %>"><%= item.due_date.strftime('%d/%m/%Y') %></span>
+          <span title="Due on <%= item.due_date.strftime('%b %d, %Y') %>"><%= item.due_date.strftime('%b %d, %Y') %></span>
         <% else %>
           <span title="Click to set a due date">No Due Date</span>
         <% end %>

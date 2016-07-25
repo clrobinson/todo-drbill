@@ -10,7 +10,7 @@ class List < ActiveRecord::Base
   before_create :set_default_name
 
   def self.default_name
-    "Tasks for #{Date.today.strftime('%d/%m/%Y')}"
+    "List for #{Date.today.strftime('%b %d, %Y')}"
   end
 
   protected

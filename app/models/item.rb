@@ -7,6 +7,7 @@ class Item < ActiveRecord::Base
 
   # Callbacks
   before_validation :done_removes_due_date
+  before_validation :format_content_whitespace
 
   def overdue?
     return nil if self.due_date.nil?
@@ -26,6 +27,11 @@ class Item < ActiveRecord::Base
 
     def done_removes_due_date
       self.due_date = nil if self.done
+      return true
+    end
+
+    def format_content_whitespace
+      self.content = self.content.squish
       return true
     end
 
